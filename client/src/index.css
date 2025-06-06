@@ -198,6 +198,40 @@
   }
 }
 
+/* Apple-like card border animation */
+@keyframes border-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-border {
+  position: relative;
+  overflow: hidden;
+}
+
+.animate-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  padding: 1px;
+  background: conic-gradient(from 0deg, 
+    rgba(71, 85, 105, 0.48) 0deg,
+    #a855f7 72deg,
+    #c084fc 108deg,
+    #a855f7 144deg,
+    rgba(71, 85, 105, 0.48) 288deg);
+  border-radius: inherit;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: xor;
+  animation: border-rotate 6s linear infinite;
+}
+
+.apple-card {
+  background: linear-gradient(45deg, #172033, #334155 50%, #172033);
+  border-radius: 16px;
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;

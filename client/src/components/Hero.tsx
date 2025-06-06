@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLanguage } from "../lib/i18n";
 import { Button } from "@/components/ui/button";
+import BlurReveal from "./BlurReveal";
 
 export default function Hero() {
   const { t } = useLanguage();
@@ -38,11 +39,11 @@ export default function Hero() {
           <div className={`text-white transition-all duration-1000 ${
             isLoaded ? 'opacity-100 translate-y-0 blur-0' : 'opacity-0 translate-y-8 blur-sm'
           }`}>
-            <h1 className={`text-5xl lg:text-6xl font-bold mb-6 leading-tight transition-all duration-1200 delay-200 ${
-              isLoaded ? 'opacity-100 translate-y-0 blur-0' : 'opacity-0 translate-y-12 blur-md'
-            }`}>
-              {t('hero.title')}
-            </h1>
+            <BlurReveal 
+              text={t('hero.title')}
+              className="text-5xl lg:text-6xl font-bold mb-6 leading-tight text-white"
+              as="h1"
+            />
             <p className={`text-xl mb-8 opacity-90 leading-relaxed transition-all duration-1000 delay-400 ${
               isLoaded ? 'opacity-90 translate-y-0 blur-0' : 'opacity-0 translate-y-8 blur-sm'
             }`}>
