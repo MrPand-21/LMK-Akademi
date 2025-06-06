@@ -44,11 +44,11 @@ export default function Hero() {
               className="text-5xl lg:text-6xl font-bold mb-6 leading-tight text-white"
               as="h1"
             />
-            <p className={`text-xl mb-8 opacity-90 leading-relaxed transition-all duration-1000 delay-400 ${
-              isLoaded ? 'opacity-90 translate-y-0 blur-0' : 'opacity-0 translate-y-8 blur-sm'
-            }`}>
-              {t('hero.subtitle')}
-            </p>
+            <BlurReveal 
+              text={t('hero.subtitle')}
+              className="text-xl mb-8 opacity-90 leading-relaxed text-white"
+              as="p"
+            />
             <div className={`flex flex-col sm:flex-row gap-4 transition-all duration-1000 delay-600 ${
               isLoaded ? 'opacity-100 translate-y-0 blur-0' : 'opacity-0 translate-y-8 blur-sm'
             }`}>

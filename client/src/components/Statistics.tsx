@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLanguage } from "../lib/i18n";
+import BlurReveal from "./BlurReveal";
 
 export default function Statistics() {
   const { t } = useLanguage();
@@ -61,35 +62,40 @@ export default function Statistics() {
       </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-2 lg:grid-cols-5 gap-8 text-center text-white">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Years of Experience */}
-          <div className="animate-fade-in">
-            <div className="text-5xl font-bold mb-4 counter" data-target="10">0</div>
-            <div className="text-lg font-medium">{t('stats.experience')}</div>
+          <div className="apple-card animate-border p-6 text-center text-white group hover:scale-105 transition-all duration-300">
+            <div className="text-5xl font-bold mb-4 counter text-purple-300" data-target="10">0</div>
+            <div className="text-lg font-medium text-white/90">{t('stats.experience')}</div>
+            <div className="mt-2 text-sm text-green-400">+100%</div>
           </div>
 
           {/* Students */}
-          <div className="animate-fade-in" style={{animationDelay: '0.2s'}}>
-            <div className="text-5xl font-bold mb-4 counter" data-target="739">0</div>
-            <div className="text-lg font-medium">{t('stats.students')}</div>
+          <div className="apple-card animate-border p-6 text-center text-white group hover:scale-105 transition-all duration-300" style={{animationDelay: '0.5s'}}>
+            <div className="text-5xl font-bold mb-4 counter text-purple-300" data-target="739">0</div>
+            <div className="text-lg font-medium text-white/90">{t('stats.students')}</div>
+            <div className="mt-2 text-sm text-green-400">+48%</div>
           </div>
 
           {/* High Schools */}
-          <div className="animate-fade-in" style={{animationDelay: '0.4s'}}>
-            <div className="text-5xl font-bold mb-4 counter" data-target="580">0</div>
-            <div className="text-lg font-medium">{t('stats.schools')}</div>
+          <div className="apple-card animate-border p-6 text-center text-white group hover:scale-105 transition-all duration-300" style={{animationDelay: '1s'}}>
+            <div className="text-5xl font-bold mb-4 counter text-purple-300" data-target="580">0</div>
+            <div className="text-lg font-medium text-white/90">{t('stats.schools')}</div>
+            <div className="mt-2 text-sm text-green-400">+35%</div>
           </div>
 
           {/* Universities */}
-          <div className="animate-fade-in" style={{animationDelay: '0.6s'}}>
-            <div className="text-5xl font-bold mb-4 counter" data-target="1322">0</div>
-            <div className="text-lg font-medium">{t('stats.universities')}</div>
+          <div className="apple-card animate-border p-6 text-center text-white group hover:scale-105 transition-all duration-300" style={{animationDelay: '1.5s'}}>
+            <div className="text-5xl font-bold mb-4 counter text-purple-300" data-target="1322">0</div>
+            <div className="text-lg font-medium text-white/90">{t('stats.universities')}</div>
+            <div className="mt-2 text-sm text-green-400">+62%</div>
           </div>
 
           {/* Scholarships */}
-          <div className="animate-fade-in col-span-2 lg:col-span-1" style={{animationDelay: '0.8s'}}>
-            <div className="text-3xl lg:text-4xl font-bold mb-4">$2,000,000</div>
-            <div className="text-lg font-medium">{t('stats.scholarships')}</div>
+          <div className="apple-card animate-border p-6 text-center text-white group hover:scale-105 transition-all duration-300" style={{animationDelay: '2s'}}>
+            <div className="text-3xl lg:text-4xl font-bold mb-4 text-purple-300">$2M+</div>
+            <div className="text-lg font-medium text-white/90">{t('stats.scholarships')}</div>
+            <div className="mt-2 text-sm text-green-400">+280%</div>
           </div>
         </div>
       </div>

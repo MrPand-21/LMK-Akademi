@@ -1,5 +1,6 @@
 import { useLanguage } from "../lib/i18n";
 import { Button } from "@/components/ui/button";
+import BlurReveal from "./BlurReveal";
 
 export default function About() {
   const { t } = useLanguage();
@@ -11,7 +12,11 @@ export default function About() {
           {/* About Content */}
           <div className="animate-fade-in-up">
             <span className="text-purple-600 font-semibold text-lg">{t('about.title')}</span>
-            <h2 className="text-4xl font-bold text-gray-900 mt-4 mb-6">{t('about.company')}</h2>
+            <BlurReveal 
+              text={t('about.company')}
+              className="text-4xl font-bold text-gray-900 mt-4 mb-6"
+              as="h2"
+            />
             <p className="text-lg text-gray-700 mb-6 leading-relaxed">
               {t('about.description')}
             </p>
