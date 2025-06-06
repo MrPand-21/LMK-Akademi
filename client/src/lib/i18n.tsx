@@ -38,6 +38,26 @@ const translations: Translations = {
   // Services Section
   'services.title': { tr: 'Hizmetlerimiz', en: 'Our Services' },
   'services.subtitle': { tr: 'Kapsamlı eğitim danışmanlığı hizmetlerimizle yanınızdayız', en: 'We are with you with our comprehensive educational consulting services' },
+  
+  // Process Section
+  'process.title': { tr: 'Sürecimiz', en: 'Our Process' },
+  'process.subtitle': { tr: 'Eğitim Yolculuğunuz', en: 'Your Education Journey' },
+  'process.description': { tr: 'Uluslararası eğitim hayallerinizi gerçekleştirmek için yapılandırılmış yaklaşımımız', en: 'A structured approach to achieving your international education dreams' },
+  
+  'process.step1.title': { tr: 'İlk Danışmanlık', en: 'Initial Consultation' },
+  'process.step1.description': { tr: 'Akademik hedefleriniz, ilgi alanlarınız ve aile tercihlerinizin kapsamlı değerlendirmesiyle kişiselleştirilmiş eğitim yol haritası oluşturuyoruz.', en: 'We begin with a comprehensive assessment of your academic goals, interests, and family preferences to create a personalized education roadmap.' },
+  
+  'process.step2.title': { tr: 'Okul Araştırması ve Seçimi', en: 'School Research & Selection' },
+  'process.step2.description': { tr: 'Ekibimiz profilinize göre en uygun okulları araştırır ve listeler, akademik mükemmellik ve kültürel uyumluluğu garanti eder.', en: 'Our team researches and shortlists the best-fit schools based on your profile, ensuring academic excellence and cultural compatibility.' },
+  
+  'process.step3.title': { tr: 'Başvuru Desteği', en: 'Application Support' },
+  'process.step3.description': { tr: 'Denemelerden mülakatklara kadar başvuru sürecinin her adımında size rehberlik ederek kabul şansınızı maksimize ediyoruz.', en: 'We guide you through every step of the application process, from essays to interviews, maximizing your chances of acceptance.' },
+  
+  'process.step4.title': { tr: 'Hazırlık ve Geçiş', en: 'Preparation & Transition' },
+  'process.step4.description': { tr: 'Kültürel oryantasyon, akademik hazırlık ve pratik düzenlemeler dahil olmak üzere ayrılık öncesi hazırlık ile sorunsuz geçiş.', en: 'Pre-departure preparation including cultural orientation, academic readiness, and practical arrangements for a smooth transition.' },
+  
+  'process.step5.title': { tr: 'Sürekli Destek', en: 'Ongoing Support' },
+  'process.step5.description': { tr: 'Akademik izleme, aile iletişimi ve kriz yönetimi ile eğitim yolculuğunuz boyunca sürekli destek.', en: 'Continuous support throughout your education journey with academic monitoring, family communication, and crisis management.' },
   'services.elementary.title': { tr: 'İlköğretim Programları', en: 'Elementary Programs' },
   'services.elementary.description': { tr: 'Yurtdışı ilköğretim okul danışmanlığı ve hazırlık programları', en: 'International elementary school consulting and preparation programs' },
   'services.highschool.title': { tr: 'Lise Programları', en: 'High School Programs' },
@@ -100,14 +120,27 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguage] = useState<Language>('tr');
+  const [language, setLanguage] = useState<Language>(() => {
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('language');
+      return (saved as Language) || 'tr';
+    }
+    return 'tr';
+  });
+
+  const handleSetLanguage = (lang: Language) => {
+    setLanguage(lang);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('language', lang);
+    }
+  };
 
   const t = (key: string): string => {
     return translations[key]?.[language] || key;
   };
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+    <LanguageContext.Provider value={{ language, setLanguage: handleSetLanguage, t }}>
       {children}
     </LanguageContext.Provider>
   );

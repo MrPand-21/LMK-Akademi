@@ -3,6 +3,8 @@ import Hero from "../components/Hero";
 import About from "../components/About";
 import Services from "../components/Services";
 import Statistics from "../components/Statistics";
+import StickyScrollSection from "../components/StickyScrollSection";
+import HorizontalScroll from "../components/HorizontalScroll";
 import Testimonials from "../components/Testimonials";
 import Events from "../components/Events";
 import Contact from "../components/Contact";
@@ -16,6 +18,8 @@ export default function Home() {
       <About />
       <Services />
       <Statistics />
+      <StickyScrollSection />
+      <HorizontalScroll />
       <Testimonials />
       <Events />
       <Contact />

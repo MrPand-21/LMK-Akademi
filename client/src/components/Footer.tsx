@@ -1,11 +1,75 @@
+import { useEffect, useRef, useState } from "react";
 import { useLanguage } from "../lib/i18n";
 
 export default function Footer() {
   const { t } = useLanguage();
+  const footerRef = useRef<HTMLElement>(null);
+  const [scrollY, setScrollY] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+      
+      if (footerRef.current) {
+        const footerRect = footerRef.current.getBoundingClientRect();
+        setIsVisible(footerRect.top < window.innerHeight);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const floatingElements = Array.from({ length: 15 }, (_, i) => ({
+    id: i,
+    size: Math.random() * 60 + 20,
+    initialX: Math.random() * 100,
+    initialY: Math.random() * 100,
+    speed: Math.random() * 0.5 + 0.2,
+    delay: Math.random() * 2000,
+  }));
 
   return (
-    <footer className="bg-gray-900 text-white py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer ref={footerRef} className="relative bg-gradient-to-b from-gray-900 via-purple-900 to-black text-white py-20 overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        {floatingElements.map((element) => (
+          <div
+            key={element.id}
+            className="absolute rounded-full bg-gradient-to-r from-purple-400/20 to-pink-400/20 animate-pulse-slow"
+            style={{
+              width: `${element.size}px`,
+              height: `${element.size}px`,
+              left: `${element.initialX}%`,
+              top: `${element.initialY}%`,
+              transform: isVisible 
+                ? `translateY(${Math.sin((scrollY + element.delay) * element.speed * 0.01) * 50}px) translateX(${Math.cos((scrollY + element.delay) * element.speed * 0.008) * 30}px)`
+                : 'translateY(0px) translateX(0px)',
+              transition: 'transform 0.1s ease-out',
+              animationDelay: `${element.delay}ms`,
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Parallax Background Layers */}
+      <div className="absolute inset-0">
+        <div 
+          className="absolute inset-0 bg-gradient-to-r from-purple-600/10 to-blue-600/10"
+          style={{
+            transform: `translateY(${scrollY * 0.3}px)`,
+          }}
+        />
+        <div 
+          className="absolute inset-0 bg-gradient-to-l from-pink-600/5 to-purple-600/5"
+          style={{
+            transform: `translateY(${scrollY * 0.5}px)`,
+          }}
+        />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
