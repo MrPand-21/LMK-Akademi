@@ -103,6 +103,40 @@ const translations: Translations = {
   // Footer
   'footer.copyright': { tr: '© 2019 - 2025 LMK Consulting Tüm Hakları Saklıdır.', en: '© 2019 - 2025 LMK Consulting All Rights Reserved.' },
 
+  // Horizontal Scroll Section
+  'horizontal.title': { tr: 'Eğitim Yolculuğu', en: 'Education Journey' },
+  'horizontal.subtitle': { tr: 'Kapsamlı programlarımızı keşfetmek için kaydırın', en: 'Scroll to explore our comprehensive programs' },
+  
+  'horizontal.elementary.title': { tr: 'İlköğretim Programları', en: 'Elementary Programs' },
+  'horizontal.elementary.description': { tr: 'Kapsamlı uluslararası ilköğretim eğitimi rehberliği', en: 'Comprehensive international elementary education guidance' },
+  'horizontal.elementary.feature1': { tr: 'Okul Seçimi', en: 'School Selection' },
+  'horizontal.elementary.feature2': { tr: 'Başvuru Desteği', en: 'Application Support' },
+  'horizontal.elementary.feature3': { tr: 'Kültürel Hazırlık', en: 'Cultural Preparation' },
+  
+  'horizontal.highschool.title': { tr: 'Lise Programları', en: 'High School Programs' },
+  'horizontal.highschool.description': { tr: 'Dünya çapında premium yatılı ve gündüzlü okul yerleştirmeleri', en: 'Premium boarding and day school placements worldwide' },
+  'horizontal.highschool.feature1': { tr: 'Yatılı Okullar', en: 'Boarding Schools' },
+  'horizontal.highschool.feature2': { tr: 'Gündüzlü Okullar', en: 'Day Schools' },
+  'horizontal.highschool.feature3': { tr: 'Spor Programları', en: 'Athletic Programs' },
+  
+  'horizontal.exchange.title': { tr: 'Değişim Programları', en: 'Exchange Programs' },
+  'horizontal.exchange.description': { tr: 'Küresel perspektifler için kültürlerarası daldırma deneyimleri', en: 'Cross-cultural immersion experiences for global perspectives' },
+  'horizontal.exchange.feature1': { tr: 'Kültürel Değişim', en: 'Cultural Exchange' },
+  'horizontal.exchange.feature2': { tr: 'Dil Daldırma', en: 'Language Immersion' },
+  'horizontal.exchange.feature3': { tr: 'Ev Sahibi Aileler', en: 'Host Families' },
+  
+  'horizontal.university.title': { tr: 'Üniversite Danışmanlığı', en: 'University Consulting' },
+  'horizontal.university.description': { tr: 'Üst düzey üniversite kabulü için stratejik rehberlik', en: 'Strategic guidance for top-tier university admissions' },
+  'horizontal.university.feature1': { tr: 'Başvuru Stratejisi', en: 'Application Strategy' },
+  'horizontal.university.feature2': { tr: 'Deneme Desteği', en: 'Essay Support' },
+  'horizontal.university.feature3': { tr: 'Mülakat Hazırlığı', en: 'Interview Prep' },
+  
+  'horizontal.scholarships.title': { tr: 'Burs Programları', en: 'Scholarship Programs' },
+  'horizontal.scholarships.description': { tr: 'Olağanüstü öğrenciler için liyakat temelli mali yardım', en: 'Merit-based financial aid for exceptional students' },
+  'horizontal.scholarships.feature1': { tr: 'Başarı Bursları', en: 'Merit Scholarships' },
+  'horizontal.scholarships.feature2': { tr: 'Spor Ödülleri', en: 'Athletic Awards' },
+  'horizontal.scholarships.feature3': { tr: 'Akademik Mükemmellik', en: 'Academic Excellence' },
+
   // Common
   'common.learnMore': { tr: 'Daha Fazla Bilgi', en: 'Learn More' },
   'common.getStarted': { tr: 'Hemen Başlayın', en: 'Get Started' },

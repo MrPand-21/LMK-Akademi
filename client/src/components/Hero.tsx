@@ -1,8 +1,15 @@
+import { useEffect, useState } from "react";
 import { useLanguage } from "../lib/i18n";
 import { Button } from "@/components/ui/button";
 
 export default function Hero() {
   const { t } = useLanguage();
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoaded(true), 300);
+    return () => clearTimeout(timer);
+  }, []);
 
   const scrollToContact = () => {
     const element = document.getElementById('contact');
@@ -28,23 +35,31 @@ export default function Hero() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Hero Content */}
-          <div className="text-white animate-fade-in-up">
-            <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+          <div className={`text-white transition-all duration-1000 ${
+            isLoaded ? 'opacity-100 translate-y-0 blur-0' : 'opacity-0 translate-y-8 blur-sm'
+          }`}>
+            <h1 className={`text-5xl lg:text-6xl font-bold mb-6 leading-tight transition-all duration-1200 delay-200 ${
+              isLoaded ? 'opacity-100 translate-y-0 blur-0' : 'opacity-0 translate-y-12 blur-md'
+            }`}>
               {t('hero.title')}
             </h1>
-            <p className="text-xl mb-8 opacity-90 leading-relaxed">
+            <p className={`text-xl mb-8 opacity-90 leading-relaxed transition-all duration-1000 delay-400 ${
+              isLoaded ? 'opacity-90 translate-y-0 blur-0' : 'opacity-0 translate-y-8 blur-sm'
+            }`}>
               {t('hero.subtitle')}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className={`flex flex-col sm:flex-row gap-4 transition-all duration-1000 delay-600 ${
+              isLoaded ? 'opacity-100 translate-y-0 blur-0' : 'opacity-0 translate-y-8 blur-sm'
+            }`}>
               <Button 
                 onClick={scrollToContact}
-                className="bg-yellow-500 hover:bg-yellow-600 text-white px-8 py-4 rounded-xl font-semibold transition-all transform hover:scale-105 shadow-lg hover:shadow-xl"
+                className="bg-yellow-500 hover:bg-yellow-600 text-white px-8 py-4 rounded-xl font-semibold transition-all transform hover:scale-105 shadow-lg hover:shadow-xl magnetic-hover"
               >
                 {t('hero.cta')}
               </Button>
               <Button 
                 variant="outline"
-                className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-purple-600 transition-all"
+                className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-purple-600 transition-all magnetic-hover"
               >
                 <i className="fas fa-play mr-2"></i>
                 {t('hero.planning')}
@@ -53,12 +68,14 @@ export default function Hero() {
           </div>
 
           {/* Hero Visual */}
-          <div className="relative animate-slide-in-right">
+          <div className={`relative transition-all duration-1500 delay-800 ${
+            isLoaded ? 'opacity-100 translate-x-0 blur-0 scale-100' : 'opacity-0 translate-x-8 blur-sm scale-95'
+          }`}>
             <div className="relative z-10">
               <img 
                 src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
                 alt="Students collaborating in modern classroom" 
-                className="rounded-3xl shadow-2xl w-full h-auto" 
+                className="rounded-3xl shadow-2xl w-full h-auto floating-animation" 
               />
             </div>
             

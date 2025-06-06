@@ -34,46 +34,46 @@ export default function HorizontalScroll() {
 
   const programs = [
     {
-      title: "Elementary Programs",
-      description: "Comprehensive international elementary education guidance",
+      title: t('horizontal.elementary.title'),
+      description: t('horizontal.elementary.description'),
       image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
-      features: ["School Selection", "Application Support", "Cultural Preparation"]
+      features: [t('horizontal.elementary.feature1'), t('horizontal.elementary.feature2'), t('horizontal.elementary.feature3')]
     },
     {
-      title: "High School Programs", 
-      description: "Premium boarding and day school placements worldwide",
+      title: t('horizontal.highschool.title'), 
+      description: t('horizontal.highschool.description'),
       image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
-      features: ["Boarding Schools", "Day Schools", "Athletic Programs"]
+      features: [t('horizontal.highschool.feature1'), t('horizontal.highschool.feature2'), t('horizontal.highschool.feature3')]
     },
     {
-      title: "Exchange Programs",
-      description: "Cross-cultural immersion experiences for global perspectives",
+      title: t('horizontal.exchange.title'),
+      description: t('horizontal.exchange.description'),
       image: "https://images.unsplash.com/photo-1529390079861-591de354faf5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
-      features: ["Cultural Exchange", "Language Immersion", "Host Families"]
+      features: [t('horizontal.exchange.feature1'), t('horizontal.exchange.feature2'), t('horizontal.exchange.feature3')]
     },
     {
-      title: "University Consulting",
-      description: "Strategic guidance for top-tier university admissions",
+      title: t('horizontal.university.title'),
+      description: t('horizontal.university.description'),
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
-      features: ["Application Strategy", "Essay Support", "Interview Prep"]
+      features: [t('horizontal.university.feature1'), t('horizontal.university.feature2'), t('horizontal.university.feature3')]
     },
     {
-      title: "Scholarship Programs",
-      description: "Merit-based financial aid for exceptional students",
+      title: t('horizontal.scholarships.title'),
+      description: t('horizontal.scholarships.description'),
       image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
-      features: ["Merit Scholarships", "Athletic Awards", "Academic Excellence"]
+      features: [t('horizontal.scholarships.feature1'), t('horizontal.scholarships.feature2'), t('horizontal.scholarships.feature3')]
     }
   ];
 
   return (
-    <section ref={containerRef} className="h-[300vh] relative">
-      <div className="sticky top-0 h-screen flex items-center overflow-hidden bg-gradient-to-r from-purple-900 via-purple-800 to-indigo-900">
+    <section ref={containerRef} className="h-[300vh] relative -mt-20">
+      <div className="sticky top-0 h-screen flex items-center overflow-hidden bg-gradient-to-r from-purple-900 via-purple-800 to-indigo-900 horizontal-scroll-container">
         <div className="absolute inset-0 bg-black/20"></div>
         
         <div className="w-full relative z-10">
           <div className="text-center mb-8 px-8">
-            <h2 className="text-5xl font-bold text-white mb-4">Education Journey</h2>
-            <p className="text-xl text-purple-100">Scroll to explore our comprehensive programs</p>
+            <h2 className="text-5xl font-bold text-white mb-4">{t('horizontal.title')}</h2>
+            <p className="text-xl text-purple-100">{t('horizontal.subtitle')}</p>
           </div>
           
           <div 

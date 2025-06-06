@@ -59,8 +59,8 @@ export default function StickyScrollSection() {
   }, [steps.length]);
 
   return (
-    <section ref={containerRef} className="h-[400vh] relative">
-      <div className="sticky top-0 h-screen flex items-center bg-white">
+    <section ref={containerRef} className="h-[400vh] relative -mt-20">
+      <div className="sticky top-0 h-screen flex items-center bg-white sticky-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left side - Process steps */}
