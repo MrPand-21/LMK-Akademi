@@ -12,15 +12,47 @@ interface Translations {
 const translations: Translations = {
   // Navigation
   'nav.about': { tr: 'Biz Kimiz', en: 'About Us' },
+  'nav.about.company': { tr: 'Hakkımızda', en: 'About Company' },
+  'nav.about.values': { tr: 'Değerlerimiz', en: 'Our Values' },
+  'nav.about.references': { tr: 'Referanslarımız', en: 'Our References' },
+  'nav.about.consultants': { tr: 'Danışmanlarımız', en: 'Our Consultants' },
+  
   'nav.education': { tr: 'Eğitim Planlama', en: 'Education Planning' },
+  'nav.education.what': { tr: 'Eğitim Planlama Nedir?', en: 'What is Education Planning?' },
+  'nav.education.warmup': { tr: 'Isındırma', en: 'Warm-up' },
+  'nav.education.followup': { tr: 'Takip Danışmanlığı', en: 'Follow-up Consulting' },
+  
   'nav.programs': { tr: 'İlköğretim & Lise Programları', en: 'Elementary & High School Programs' },
+  'nav.programs.elementary': { tr: 'Yurtdışı İlköğretim Okul Danışmanlığı', en: 'International Elementary School Consulting' },
+  'nav.programs.prep': { tr: 'Yurtdışı Özel Lise Eğitimi Programları Hazırlığı', en: 'International Private High School Prep Programs' },
+  'nav.programs.highschool': { tr: 'Yurtdışı Özel Lise Danışmanlığı', en: 'International Private High School Consulting' },
+  'nav.programs.athletic': { tr: 'Sporcu, Akademik ve Sanatçı Öğrenci Bursları', en: 'Athletic, Academic and Artist Student Scholarships' },
+  'nav.programs.admissions': { tr: 'Kabuller', en: 'Admissions' },
+  
   'nav.exchange': { tr: 'Değişim Programları', en: 'Exchange Programs' },
+  'nav.exchange.cultural': { tr: 'Kültürler Arası Lise Değişim Programları', en: 'Cross-Cultural High School Exchange Programs' },
+  
   'nav.university': { tr: 'Üniversite Danışmanlığı', en: 'University Consulting' },
+  'nav.university.consulting': { tr: 'Üniversite Danışmanlığı', en: 'University Consulting' },
+  'nav.university.postgrad': { tr: 'Üniversite Sonrası', en: 'Post-Graduate' },
+  
   'nav.scholarships': { tr: 'Burslar', en: 'Scholarships' },
   'nav.assist': { tr: 'Assist & Davis', en: 'Assist & Davis' },
+  'nav.assist.scholarships': { tr: 'Assist & Davis Bursları', en: 'Assist & Davis Scholarships' },
+  
   'nav.summer': { tr: 'Yaz Programları ve Dil Okulları', en: 'Summer Programs & Language Schools' },
+  'nav.summer.programs': { tr: 'Yaz Programları ve Dil Okulları', en: 'Summer Programs and Language Schools' },
+  
   'nav.exams': { tr: 'Akademik Sınavlar', en: 'Academic Exams' },
+  'nav.exams.academic': { tr: 'Akademik Sınavlar', en: 'Academic Exams' },
+  
   'nav.placements': { tr: 'Öğrenci Yerleştirmeleri', en: 'Student Placements' },
+  'nav.placements.student': { tr: 'Öğrenci Yerleştirmeleri', en: 'Student Placements' },
+  
+  'nav.other': { tr: 'Diğer Bölümler', en: 'Other Sections' },
+  'nav.events': { tr: 'Etkinliklerimiz', en: 'Our Events' },
+  'nav.blog': { tr: 'Blog', en: 'Blog' },
+  'nav.faq': { tr: 'Sıkça Sorulan Sorular', en: 'FAQ' },
   'nav.contact': { tr: 'İletişim', en: 'Contact' },
 
   // Hero Section

@@ -46,16 +46,33 @@ export default function StickyScrollSection() {
 
     const handleScroll = () => {
       const containerRect = container.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      
+      // Calculate progress through the sticky section
       const progress = Math.max(0, Math.min(1, 
-        -containerRect.top / (containerRect.height - window.innerHeight)
+        (-containerRect.top + windowHeight * 0.1) / (containerRect.height - windowHeight)
       ));
       
-      const newIndex = Math.floor(progress * steps.length);
-      setActiveIndex(Math.min(newIndex, steps.length - 1));
+      // Map progress to step index with smoother transitions
+      const stepProgress = progress * (steps.length - 0.001);
+      const newIndex = Math.floor(stepProgress);
+      setActiveIndex(Math.max(0, Math.min(newIndex, steps.length - 1)));
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    // Use throttled scroll for better performance
+    let ticking = false;
+    const throttledScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', throttledScroll);
+    return () => window.removeEventListener('scroll', throttledScroll);
   }, [steps.length]);
 
   return (
