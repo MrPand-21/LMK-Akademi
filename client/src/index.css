@@ -129,6 +129,37 @@
   .floating-animation {
     animation: floating 6s ease-in-out infinite;
   }
+
+  .language-transition * {
+    transition: all 0.3s ease-in-out;
+  }
+
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .scroll-reveal.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  .horizontal-scroll-container {
+    will-change: transform;
+  }
+
+  .sticky-section {
+    will-change: transform, opacity;
+  }
+
+  .magnetic-hover {
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .magnetic-hover:hover {
+    transform: translateY(-10px) scale(1.05);
+  }
 }
 
 @keyframes floating {

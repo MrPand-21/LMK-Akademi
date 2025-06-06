@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
 import About from "../components/About";
@@ -9,10 +10,29 @@ import Testimonials from "../components/Testimonials";
 import Events from "../components/Events";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
+import { useScrollEffects } from "../hooks/useScrollEffects";
+import { useLanguage } from "../lib/i18n";
 
 export default function Home() {
+  const { scrollY, scrollDirection } = useScrollEffects();
+  const { language } = useLanguage();
+
+  useEffect(() => {
+    // Add smooth language transition class to body
+    document.body.classList.add('language-transition');
+    
+    // Trigger scroll-based reveals
+    const revealElements = document.querySelectorAll('.reveal-on-scroll');
+    revealElements.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 100) {
+        el.classList.add('visible');
+      }
+    });
+  }, [language]);
+
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white overflow-x-hidden">
       <Header />
       <Hero />
       <About />

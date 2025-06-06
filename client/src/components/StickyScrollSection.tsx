@@ -66,12 +66,12 @@ export default function StickyScrollSection() {
             {/* Left side - Process steps */}
             <div className="space-y-8">
               <div className="text-center lg:text-left">
-                <span className="text-purple-600 font-semibold text-lg">Our Process</span>
+                <span className="text-purple-600 font-semibold text-lg">{t('process.title')}</span>
                 <h2 className="text-4xl font-bold text-gray-900 mt-4 mb-6">
-                  Your Education Journey
+                  {t('process.subtitle')}
                 </h2>
                 <p className="text-lg text-gray-600">
-                  A structured approach to achieving your international education dreams
+                  {t('process.description')}
                 </p>
               </div>
 
