@@ -89,11 +89,14 @@ export default function Header() {
         <div className=" w-full px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             <div className="flex items-center space-x-3">
-              <div className="font-bold text-lg">LMK</div>
-              <div className="text-sm opacity-90">CONSULTING</div>
+              <img
+                src={isScrolled ? "https://lmkconsulting.org/assets/img/logo2.png" : "https://lmkconsulting.org/assets/img/logo.png"}
+                alt="Logo"
+                className="h-10 w-auto"
+              />
             </div>
 
-            <nav className="hidden lg:flex space-x-8 relative">
+            <nav className="hidden lg:flex items-baseline space-x-8 relative">
               {navigationItems.map((item) => (
                 <div
                   key={item.key}
@@ -102,10 +105,10 @@ export default function Header() {
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
                   <button
-                    className="text-white hover:text-yellow-400 transition-colors py-2 flex items-center space-x-1"
+                    className={`${isScrolled ? "text-purple-primary" : "text-white/80"} hover:text-yellow-400 transition-colors
+                       py-2 flex items-center text-sm font-semibold`}
                   >
                     <span>{item.label}</span>
-                    <i className="fas fa-chevron-down text-xs"></i>
                   </button>
 
                   {/* Dropdown Menu */}
@@ -133,7 +136,7 @@ export default function Header() {
 
               <button
                 onClick={() => scrollToSection('contact')}
-                className="text-white hover:text-yellow-400 transition-colors py-2"
+                className={`${isScrolled ? "text-purple-primary" : "text-white/80"}  hover:text-yellow-400 transition-colors py-2 text-sm font-semibold`}
               >
                 {t('nav.contact')}
               </button>

@@ -34,13 +34,13 @@ export default function Events() {
           {events.map((event, index) => (
             <Card key={index} className="overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border-0">
               <div className="h-64 overflow-hidden">
-                <img 
-                  src={event.image} 
+                <img
+                  src={event.image}
                   alt={event.alt}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" 
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
-              
+
               <CardHeader>
                 <div className="flex items-center mb-4">
                   <div className="w-3 h-3 bg-purple-600 rounded-full mr-3"></div>
@@ -48,12 +48,12 @@ export default function Events() {
                 </div>
                 <CardTitle className="text-2xl text-gray-900">{event.title}</CardTitle>
               </CardHeader>
-              
+
               <CardContent>
                 <CardDescription className="text-gray-700 leading-relaxed mb-6">
                   {event.description}
                 </CardDescription>
-                
+
                 <Button className="gradient-bg text-white hover:opacity-90">
                   {t('common.viewDetails')}
                 </Button>
@@ -61,9 +61,9 @@ export default function Events() {
             </Card>
           ))}
         </div>
-        
+
         <div className="text-center mt-12">
-          <Button className="bg-yellow-500 hover:bg-yellow-600 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105">
+          <Button className="bg-yellow-500 hover:bg-yellow-600 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105">
             {t('common.allEvents')}
           </Button>
         </div>

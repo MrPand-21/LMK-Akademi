@@ -59,7 +59,7 @@ export default function Contact() {
                   <div className="opacity-90">{t('contact.phone')}</div>
                 </div>
               </div>
-              
+
               <div className="flex items-center space-x-4">
                 <div className="w-12 h-12 glassmorphism rounded-full flex items-center justify-center">
                   <i className="fas fa-envelope text-white"></i>
@@ -69,7 +69,7 @@ export default function Contact() {
                   <div className="opacity-90">{t('contact.email')}</div>
                 </div>
               </div>
-              
+
               <div className="flex items-center space-x-4">
                 <div className="w-12 h-12 glassmorphism rounded-full flex items-center justify-center">
                   <i className="fab fa-whatsapp text-white"></i>
@@ -85,7 +85,7 @@ export default function Contact() {
           {/* Contact Form */}
           <div className="glassmorphism rounded-3xl p-8 shadow-2xl">
             <h3 className="text-2xl font-bold text-white mb-6">{t('contact.getConsultation')}</h3>
-            
+
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-4">
                 <Input
@@ -105,7 +105,7 @@ export default function Contact() {
                   required
                 />
               </div>
-              
+
               <Input
                 type="email"
                 placeholder="E-posta adresiniz"
@@ -114,7 +114,7 @@ export default function Contact() {
                 className="bg-white/20 border-white/30 text-white placeholder:text-white/70 focus:ring-white/50"
                 required
               />
-              
+
               <Select value={formData.program} onValueChange={(value) => handleInputChange('program', value)}>
                 <SelectTrigger className="bg-white/20 border-white/30 text-white focus:ring-white/50">
                   <SelectValue placeholder="Program seçin" />
@@ -127,7 +127,7 @@ export default function Contact() {
                   <SelectItem value="summer">Yaz Programları</SelectItem>
                 </SelectContent>
               </Select>
-              
+
               <Textarea
                 rows={4}
                 placeholder="Size nasıl yardımcı olabiliriz?"
@@ -136,10 +136,10 @@ export default function Contact() {
                 className="bg-white/20 border-white/30 text-white placeholder:text-white/70 focus:ring-white/50 resize-none"
                 required
               />
-              
-              <Button 
-                type="submit" 
-                className="w-full bg-yellow-500 hover:bg-yellow-600 text-white py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105"
+
+              <Button
+                type="submit"
+                className="w-full bg-yellow-500 hover:bg-yellow-600 text-white py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
               >
                 Danışmanlık Talep Et
               </Button>

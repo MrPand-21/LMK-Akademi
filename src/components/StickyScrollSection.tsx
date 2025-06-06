@@ -76,26 +76,23 @@ export default function StickyScrollSection() {
   }, [steps.length]);
 
   return (
-    <section ref={containerRef} className="h-[100vh] relative mt-20">
-      <div className="  h-screen flex items-center bg-white sticky-section">
+    <section ref={containerRef} className="h-[400vh] relative -mt-20">
+      <div className="sticky -z-20 top-1/2 -translate-y-1/2 flex items-center bg-white sticky-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="sticky top-0 space-y-8">
+            <div className="space-y-8">
               <div className="text-center lg:text-left">
                 <span className="text-purple-600 font-semibold text-lg">{t('process.title')}</span>
                 <h2 className="text-4xl font-bold text-gray-900 mt-4 mb-6">
                   {t('process.subtitle')}
                 </h2>
-                <p className="text-lg text-gray-600">
-                  {t('process.description')}
-                </p>
               </div>
 
               <div className="space-y-6">
                 {steps.map((step, index) => (
                   <div
                     key={index}
-                    className={`flex items-start space-x-4 p-4 rounded-2xl transition-all duration-500 ${index === activeIndex
+                    className={`flex items-center gap-2 p-2 rounded-2xl transition-all duration-500 ${index === activeIndex
                       ? 'bg-purple-50 border-2 border-purple-200 scale-105'
                       : 'bg-gray-50 border-2 border-transparent opacity-60'
                       }`}
@@ -104,10 +101,7 @@ export default function StickyScrollSection() {
                       }`}>
                       {index + 1}
                     </div>
-                    <div className="flex-1">
-                      <h3 className="font-bold text-lg text-gray-900 mb-2">{step.title}</h3>
-                      <p className="text-gray-600 text-sm leading-relaxed">{step.description}</p>
-                    </div>
+                    <h3 className="font-bold flex-1 text-lg text-gray-900">{step.title}</h3>
                   </div>
                 ))}
               </div>

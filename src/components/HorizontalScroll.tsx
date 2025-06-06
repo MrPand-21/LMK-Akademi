@@ -10,21 +10,21 @@ export default function HorizontalScroll() {
   useEffect(() => {
     const container = containerRef.current;
     const scrollElement = scrollRef.current;
-    
+
     if (!container || !scrollElement) return;
 
     const handleScroll = () => {
       const containerRect = container.getBoundingClientRect();
-      
+
       // Calculate scroll progress more smoothly
-      const scrollProgress = Math.max(0, Math.min(1, 
+      const scrollProgress = Math.max(0, Math.min(1,
         (-containerRect.top) / (containerRect.height - window.innerHeight)
       ));
-      
+
       // Apply eased horizontal scroll based on vertical scroll
       const easedProgress = easeInOutCubic(scrollProgress);
       const maxScroll = scrollElement.scrollWidth - scrollElement.clientWidth;
-      
+
       // Use requestAnimationFrame for smoother animations
       requestAnimationFrame(() => {
         scrollElement.scrollLeft = easedProgress * maxScroll;
@@ -48,7 +48,7 @@ export default function HorizontalScroll() {
       features: [t('horizontal.elementary.feature1'), t('horizontal.elementary.feature2'), t('horizontal.elementary.feature3')]
     },
     {
-      title: t('horizontal.highschool.title'), 
+      title: t('horizontal.highschool.title'),
       description: t('horizontal.highschool.description'),
       image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400",
       features: [t('horizontal.highschool.feature1'), t('horizontal.highschool.feature2'), t('horizontal.highschool.feature3')]
@@ -74,28 +74,28 @@ export default function HorizontalScroll() {
   ];
 
   return (
-    <section ref={containerRef} className="h-[300vh] relative -mt-20">
+    <section ref={containerRef} className="h-[300vh] relative -mt-20 z-50 !bg-slate-50">
       <div className="sticky top-0 h-screen flex items-center overflow-hidden bg-gradient-to-r from-purple-900 via-purple-800 to-indigo-900 horizontal-scroll-container">
         <div className="absolute inset-0 bg-black/20"></div>
-        
+
         <div className="w-full relative z-10">
           <div className="text-center mb-8 px-8">
             <h2 className="text-5xl font-bold text-white mb-4">{t('horizontal.title')}</h2>
             <p className="text-xl text-purple-100">{t('horizontal.subtitle')}</p>
           </div>
-          
-          <div 
+
+          <div
             ref={scrollRef}
             className="flex space-x-8 px-8 overflow-x-hidden"
             style={{ scrollBehavior: 'auto' }}
           >
             {programs.map((program, index) => (
-              <Card key={index} className="min-w-[400px] bg-white/10 backdrop-blur-lg border-white/20 text-white transform transition-all duration-500 hover:scale-105 hover:bg-white/20 magnetic-hover">
-                <div className="h-48 overflow-hidden rounded-t-lg">
-                  <img 
-                    src={program.image} 
+              <Card key={index} className="min-w-[600px] group bg-white/10 backdrop-blur-lg border-white/20 text-white transform transition-all duration-500 hover:bg-white/20 magnetic-hover">
+                <div className=" h-60 overflow-hidden rounded-t-lg">
+                  <img
+                    src={program.image}
                     alt={program.title}
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
                 <CardHeader>

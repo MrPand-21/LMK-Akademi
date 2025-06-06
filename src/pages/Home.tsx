@@ -20,7 +20,7 @@ export default function Home() {
   useEffect(() => {
     // Add smooth language transition class to body
     document.body.classList.add('language-transition');
-    
+
     // Trigger scroll-based reveals
     const revealElements = document.querySelectorAll('.reveal-on-scroll');
     revealElements.forEach((el) => {
@@ -32,7 +32,7 @@ export default function Home() {
   }, [language]);
 
   return (
-    <div className="min-h-screen bg-white overflow-x-hidden">
+    <div className="  ">
       <Header />
       <Hero />
       <About />
@@ -44,10 +44,10 @@ export default function Home() {
       <Events />
       <Contact />
       <Footer />
-      
+
       {/* WhatsApp Float Button */}
-      <a 
-        href="https://wa.me/905325480564" 
+      <a
+        href="https://wa.me/905325480564"
         className="whatsapp-float"
         target="_blank"
         rel="noopener noreferrer"

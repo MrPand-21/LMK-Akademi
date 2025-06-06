@@ -10,7 +10,7 @@ export default function Footer() {
   useEffect(() => {
     const handleScroll = () => {
       setScrollY(window.scrollY);
-      
+
       if (footerRef.current) {
         const footerRect = footerRef.current.getBoundingClientRect();
         setIsVisible(footerRect.top < window.innerHeight);
@@ -43,7 +43,7 @@ export default function Footer() {
               height: `${element.size}px`,
               left: `${element.initialX}%`,
               top: `${element.initialY}%`,
-              transform: isVisible 
+              transform: isVisible
                 ? `translateY(${Math.sin((scrollY + element.delay) * element.speed * 0.01) * 50}px) translateX(${Math.cos((scrollY + element.delay) * element.speed * 0.008) * 30}px)`
                 : 'translateY(0px) translateX(0px)',
               transition: 'transform 0.1s ease-out',
@@ -55,13 +55,13 @@ export default function Footer() {
 
       {/* Parallax Background Layers */}
       <div className="absolute inset-0">
-        <div 
+        <div
           className="absolute inset-0 bg-gradient-to-r from-purple-600/10 to-blue-600/10"
           style={{
             transform: `translateY(${scrollY * 0.3}px)`,
           }}
         />
-        <div 
+        <div
           className="absolute inset-0 bg-gradient-to-l from-pink-600/5 to-purple-600/5"
           style={{
             transform: `translateY(${scrollY * 0.5}px)`,
@@ -74,19 +74,13 @@ export default function Footer() {
           {/* Company Info */}
           <div>
             <div className="flex items-center space-x-3 mb-6">
-              <div className="w-12 h-12 gradient-bg rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">LMK</span>
-              </div>
-              <div>
-                <div className="font-bold text-lg">LMK</div>
-                <div className="text-sm opacity-90">CONSULTING</div>
-              </div>
+              <img src="https://lmkconsulting.org/assets/img/resimyok_2.png" alt="LMK Akademi Logo" className="w-12 h-12 rounded-xl" />
             </div>
-            
+
             <p className="text-gray-400 mb-6 leading-relaxed">
               Güçlü bir eğitime sahip, geleceğe güvenle bakan nesiller yetişmesine öncülük ediyoruz.
             </p>
-            
+
             <div className="flex space-x-4">
               <a href="#" className="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center hover:bg-purple-700 transition-colors">
                 <i className="fab fa-facebook-f"></i>
