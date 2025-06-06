@@ -15,17 +15,25 @@ export default function HorizontalScroll() {
 
     const handleScroll = () => {
       const containerRect = container.getBoundingClientRect();
-      const containerCenter = containerRect.top + containerRect.height / 2;
-      const windowCenter = window.innerHeight / 2;
       
-      // Calculate scroll progress through the container
+      // Calculate scroll progress more smoothly
       const scrollProgress = Math.max(0, Math.min(1, 
-        (windowCenter - containerRect.top) / (containerRect.height - window.innerHeight)
+        (-containerRect.top) / (containerRect.height - window.innerHeight)
       ));
       
-      // Apply horizontal scroll based on vertical scroll
+      // Apply eased horizontal scroll based on vertical scroll
+      const easedProgress = easeInOutCubic(scrollProgress);
       const maxScroll = scrollElement.scrollWidth - scrollElement.clientWidth;
-      scrollElement.scrollLeft = scrollProgress * maxScroll;
+      
+      // Use requestAnimationFrame for smoother animations
+      requestAnimationFrame(() => {
+        scrollElement.scrollLeft = easedProgress * maxScroll;
+      });
+    };
+
+    // Easing function for smoother animation
+    const easeInOutCubic = (t: number): number => {
+      return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -82,12 +90,12 @@ export default function HorizontalScroll() {
             style={{ scrollBehavior: 'auto' }}
           >
             {programs.map((program, index) => (
-              <Card key={index} className="min-w-[400px] bg-white/10 backdrop-blur-lg border-white/20 text-white">
+              <Card key={index} className="min-w-[400px] bg-white/10 backdrop-blur-lg border-white/20 text-white transform transition-all duration-500 hover:scale-105 hover:bg-white/20 magnetic-hover">
                 <div className="h-48 overflow-hidden rounded-t-lg">
                   <img 
                     src={program.image} 
                     alt={program.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                   />
                 </div>
                 <CardHeader>
@@ -99,7 +107,7 @@ export default function HorizontalScroll() {
                 <CardContent>
                   <ul className="space-y-2">
                     {program.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center text-purple-100">
+                      <li key={featureIndex} className="flex items-center text-purple-100 transition-all duration-300 hover:text-yellow-300">
                         <i className="fas fa-check text-yellow-400 mr-2"></i>
                         {feature}
                       </li>
