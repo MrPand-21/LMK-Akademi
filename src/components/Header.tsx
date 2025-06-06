@@ -84,42 +84,33 @@ export default function Header() {
 
   return (
     <>
-      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'glassmorphism backdrop-blur-md' : 'bg-transparent'
-      }`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <header className={`fixed top-0 left-0 right-0 text-foreground z-50 transition-all duration-300 ${isScrolled ? 'glassmorphism backdrop-blur-md' : 'bg-transparent'
+        }`}>
+        <div className=" w-full px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
-            {/* Logo */}
             <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 gradient-bg rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">LMK</span>
-              </div>
-              <div className="text-white">
-                <div className="font-bold text-lg">LMK</div>
-                <div className="text-sm opacity-90">CONSULTING</div>
-              </div>
+              <div className="font-bold text-lg">LMK</div>
+              <div className="text-sm opacity-90">CONSULTING</div>
             </div>
 
-            {/* Desktop Navigation */}
             <nav className="hidden lg:flex space-x-8 relative">
               {navigationItems.map((item) => (
-                <div 
+                <div
                   key={item.key}
                   className="relative group"
                   onMouseEnter={() => setActiveDropdown(item.key)}
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
-                  <button 
+                  <button
                     className="text-white hover:text-yellow-400 transition-colors py-2 flex items-center space-x-1"
                   >
                     <span>{item.label}</span>
                     <i className="fas fa-chevron-down text-xs"></i>
                   </button>
-                  
+
                   {/* Dropdown Menu */}
-                  <div className={`absolute top-full left-0 mt-2 w-80 glassmorphism rounded-2xl shadow-2xl border border-white/20 overflow-hidden transition-all duration-300 ${
-                    activeDropdown === item.key ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible translate-y-2'
-                  }`}>
+                  <div className={`absolute top-full left-0 mt-2 w-80 glassmorphism rounded-2xl shadow-2xl border border-white/20 overflow-hidden transition-all duration-300 ${activeDropdown === item.key ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible translate-y-2'
+                    }`}>
                     <div className="p-6">
                       <h3 className="text-white font-semibold text-lg mb-4 border-b border-white/20 pb-2">
                         {item.label}
@@ -131,7 +122,6 @@ export default function Header() {
                             onClick={subItem.action}
                             className="w-full text-left text-white/90 hover:text-yellow-400 hover:bg-white/10 px-3 py-2 rounded-lg transition-all duration-200 flex items-center space-x-3"
                           >
-                            <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
                             <span className="text-sm">{subItem.label}</span>
                           </button>
                         ))}
@@ -140,9 +130,9 @@ export default function Header() {
                   </div>
                 </div>
               ))}
-              
-              <button 
-                onClick={() => scrollToSection('contact')} 
+
+              <button
+                onClick={() => scrollToSection('contact')}
                 className="text-white hover:text-yellow-400 transition-colors py-2"
               >
                 {t('nav.contact')}
@@ -171,7 +161,7 @@ export default function Header() {
               </div>
 
               {/* Mobile Menu Button */}
-              <button 
+              <button
                 className="lg:hidden text-white p-2"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               >
@@ -188,7 +178,7 @@ export default function Header() {
           <div className="fixed inset-0 bg-black/50" onClick={() => setIsMobileMenuOpen(false)}></div>
           <div className="fixed top-0 right-0 w-80 h-full gradient-bg p-6 overflow-y-auto">
             <div className="flex justify-end mb-8">
-              <button 
+              <button
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="text-white p-2"
               >
@@ -214,9 +204,9 @@ export default function Header() {
                   </div>
                 </div>
               ))}
-              
-              <button 
-                onClick={() => scrollToSection('contact')} 
+
+              <button
+                onClick={() => scrollToSection('contact')}
                 className="block text-white hover:text-yellow-400 transition-colors py-2 font-semibold"
               >
                 {t('nav.contact')}

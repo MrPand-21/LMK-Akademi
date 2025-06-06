@@ -47,12 +47,12 @@ export default function StickyScrollSection() {
     const handleScroll = () => {
       const containerRect = container.getBoundingClientRect();
       const windowHeight = window.innerHeight;
-      
+
       // Calculate progress through the sticky section
-      const progress = Math.max(0, Math.min(1, 
+      const progress = Math.max(0, Math.min(1,
         (-containerRect.top + windowHeight * 0.1) / (containerRect.height - windowHeight)
       ));
-      
+
       // Map progress to step index with smoother transitions
       const stepProgress = progress * (steps.length - 0.001);
       const newIndex = Math.floor(stepProgress);
@@ -76,12 +76,11 @@ export default function StickyScrollSection() {
   }, [steps.length]);
 
   return (
-    <section ref={containerRef} className="h-[400vh] relative -mt-20">
-      <div className="sticky top-0 h-screen flex items-center bg-white sticky-section">
+    <section ref={containerRef} className="h-[100vh] relative mt-20">
+      <div className="  h-screen flex items-center bg-white sticky-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Left side - Process steps */}
-            <div className="space-y-8">
+            <div className="sticky top-0 space-y-8">
               <div className="text-center lg:text-left">
                 <span className="text-purple-600 font-semibold text-lg">{t('process.title')}</span>
                 <h2 className="text-4xl font-bold text-gray-900 mt-4 mb-6">
@@ -94,17 +93,15 @@ export default function StickyScrollSection() {
 
               <div className="space-y-6">
                 {steps.map((step, index) => (
-                  <div 
+                  <div
                     key={index}
-                    className={`flex items-start space-x-4 p-4 rounded-2xl transition-all duration-500 ${
-                      index === activeIndex 
-                        ? 'bg-purple-50 border-2 border-purple-200 scale-105' 
-                        : 'bg-gray-50 border-2 border-transparent opacity-60'
-                    }`}
+                    className={`flex items-start space-x-4 p-4 rounded-2xl transition-all duration-500 ${index === activeIndex
+                      ? 'bg-purple-50 border-2 border-purple-200 scale-105'
+                      : 'bg-gray-50 border-2 border-transparent opacity-60'
+                      }`}
                   >
-                    <div className={`w-12 h-12 rounded-full flex items-center justify-center bg-gradient-to-r ${step.color} text-white font-bold text-lg shadow-lg ${
-                      index === activeIndex ? 'animate-pulse' : ''
-                    }`}>
+                    <div className={`w-12 h-12 rounded-full flex items-center justify-center bg-gradient-to-r ${step.color} text-white font-bold text-lg shadow-lg ${index === activeIndex ? 'animate-pulse' : ''
+                      }`}>
                       {index + 1}
                     </div>
                     <div className="flex-1">
@@ -116,7 +113,6 @@ export default function StickyScrollSection() {
               </div>
             </div>
 
-            {/* Right side - Active step visualization */}
             <div className="relative">
               <Card className={`shadow-2xl border-0 bg-gradient-to-r ${steps[activeIndex].color} text-white transform transition-all duration-700 hover:scale-105`}>
                 <CardContent className="p-8">
@@ -128,12 +124,12 @@ export default function StickyScrollSection() {
                     <p className="text-xl leading-relaxed opacity-90">
                       {steps[activeIndex].description}
                     </p>
-                    
+
                     {/* Progress indicator */}
                     <div className="mt-8">
                       <div className="text-sm opacity-80 mb-2">Step {activeIndex + 1} of {steps.length}</div>
                       <div className="w-full bg-white/20 rounded-full h-2">
-                        <div 
+                        <div
                           className="bg-white h-2 rounded-full transition-all duration-300"
                           style={{ width: `${((activeIndex + 1) / steps.length) * 100}%` }}
                         ></div>
